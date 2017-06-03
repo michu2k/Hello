@@ -1,0 +1,114 @@
+{template: inc/header.html}
+
+<header style="background-image: url('{$bat.theme}/img/blog-bg.jpg');">
+    <h1 class="hidden">{$page.title}</h1>
+</header>   
+
+<div class="author-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <img src="{$bat.theme}/img/author.jpg" class="author-image" alt="">
+                    <h2 class="author-name">
+                        Kate Doe
+                    </h2>
+                <div class="author-description">{$snippet.author-description}</div>
+
+                <div class="social">
+
+                    <!--Social icons start-->
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-500px" aria-hidden="true"></i></a>
+                    <!--Social icons end-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="section">
+            {loop: $blog.posts}
+                <article class="post">
+                    <div class="row">
+
+                        {if: $value.cover_photo}
+                        <div class="col-xs-12 col-md-4">
+                            <a href="{$value.url}">  
+                                <figure class="post-thumbnail">
+                                    <img src="{$value.cover_url}" alt="">
+                                </figure>
+                            </a> 
+                        </div>
+
+                        <div class="col-xs-12 col-md-8">
+                        {else}
+                        <div class="col-xs-12">
+                        {/if}  
+
+                            <div class="post-preview-container">
+                                <div class="post-header">
+
+                                    <a href="{$value.url}">    
+                                        <h2 class="post-title">{$value.title}</h2>
+                                    </a> 
+
+                                    <div class="post-meta">
+                                        <p class="post-meta-item">{$value.published_at}</p> 
+                                                                                    
+                                        {if: $value.tags}
+                                            <p class="post-meta-item">
+                                            {loop: $value.tags as $tag}
+                                                {if: $key != 0}, {/if}
+                                                <a href="{$tag.url}" class="post-tag">{$tag.name}</a>
+                                            {/loop} 
+                                            </p>                       
+                                        {/if} 
+                        
+                                    </div>   
+                                </div>
+
+                                <div class="post-content">
+                                    {$value.content}
+                                </div>
+
+                                <div class="post-footer post-footer-preview">
+                                    <a href="{$value.url}" class="post-read-more">{$lang.blog.readmore}</a>
+                                </div>  
+                            </div> 
+                        </div>
+
+                    </div>
+                </article>   
+            {/loop}
+
+            <div class="pagination">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        {if: isset($prev)}
+                            <div class="pagination-item">
+                                <a href="{$prev.url}">{$lang.blog.newer}</a>
+                            </div>
+                        {/if}
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        {if: isset($next)}
+                            <div class="pagination-item">
+                                <a href="{$next.url}">{$lang.blog.older}</a>
+                            </div>
+                        {/if}
+                    </div>
+                </div>
+            </div> 
+
+            </div>  
+        </div>
+    </div>    
+</div>
+
+{template: inc/footer.html}

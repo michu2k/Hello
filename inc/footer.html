@@ -1,0 +1,51 @@
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-3">
+				<h3 class="widget-heading">Follow Me</h3>
+				<div class="widget-social">
+
+					<!--Social icons start-->
+					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-500px" aria-hidden="true"></i></a>
+					<!--Social icons end-->
+
+                </div>
+			</div>
+			<div class="col-xs-12 col-md-5">
+				<h3 class="widget-heading">{$lang.blog.latest_posts}</h3>
+				<ul class="widget-content">
+					{loop: $latestPosts}
+						<li class="widget-latest-post"><a href="{?= url(['blog', 'post', $value.slug]) ?}">{$value.title}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<h3 class="widget-heading">{$lang.blog.categories}</h3>
+				<ul class="widget-content">
+                    {loop: $allTags}
+					<li class="widget-tag"><a href="{?=url(['blog','tag', $value.slug]) ?}">{$value.name}</a></li>
+                    {/loop}
+				</ul>
+			</div>	
+		</div>
+	</div>
+
+	<div class="footer-copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<p>{$settings.footer} {$bat.powered}</p>
+					<p class="theme-author">Theme by <a href="http://michu2k.pl/">Michał Strumpf</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer> 
+
+    {loop: $bat.footer}{$value}{/loop}
+    
+</body>
+</html>

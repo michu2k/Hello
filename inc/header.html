@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Michał Strumpf">
+    <meta name="description" content="{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}">
+    <meta name="keywords" content="{$settings.keywords}">
+    <title>{$settings.title} : {$page.title}</title>
+
+    <link rel="stylesheet" href="{$bat.theme}/css/normalize.min.css">
+    <link rel="stylesheet" href="{$bat.theme}/css/flexboxgrid.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/56fa629212.css">
+    <link rel="stylesheet" href="{$bat.theme}/css/style.css"> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{$bat.theme}/js/bs-modal.min.js"></script>
+    <script src="{$bat.theme}/js/theme.min.js"></script>
+
+    <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--> 
+    {loop: $bat.header}{$value}{/loop}
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <a href="{$bat.path}" class="navbar-brand">{$settings.title}</a> 
+
+                <div class="navigation-container" id="main-navigation">
+                    <ul class="navbar-navigation">
+                        {$navigation.main}
+                    </ul>
+                </div>
+
+                <button type="button" id="mobile-btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</nav>
