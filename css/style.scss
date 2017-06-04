@@ -25,9 +25,6 @@ $font-family-secondary: 'Raleway', sans-serif;
 	transition: $param $time; 
 }
 
-// Import fonts
-@import url('https://fonts.googleapis.com/css?family=Lato:400|Raleway:700');
-
 /*---------- 1. Basic ----------*/
 body {
 	background-color: #efefef; 
@@ -255,7 +252,7 @@ img {
 }
 
 /*---------- 4. Header ----------*/
-header {
+.header {
 	background-color: $color-primary;
 	background-repeat: no-repeat;
 	background-position: top; 
@@ -427,7 +424,7 @@ header {
 		overflow: hidden;
 		position: relative;
 
-		img {
+		.post-img {
 			width: auto;
 			max-width: none;
 			min-height: 100%;
@@ -437,7 +434,7 @@ header {
 		}
 
 		&:hover {
-			img {
+			.post-img {
 				left: 100%;
 				transform: translate(-100%,0);
 				-webkit-transform: translate(-100%,0);
@@ -446,14 +443,14 @@ header {
 	}
 
 	.single-post-thumbnail {
-		img {
+		.post-img {
 			left: 50%;
 			-webkit-transform: translateX(-50%);
 			transform: translateX(-50%);
 		}
 
 		&:hover {
-			img {
+			.post-img {
 				left: 50%;
 				-webkit-transform: translateX(-50%) scale(1.1);
 				transform: translateX(-50%) scale(1.1);
@@ -817,7 +814,7 @@ form[name=langSwitcher] {
 }
 
 /*---------- 12. Footer ----------*/
-footer {
+.footer {
 	border-top: 1px solid $color-border;
 	margin-top: 60px;
 	background-color: #fff;
@@ -1069,7 +1066,7 @@ input, textarea {
 	}
 
 	// Footer
-	footer {
+	.footer {
 		.footer-copyright {
 			p {
 				text-align: center;

@@ -1,6 +1,6 @@
 {template: inc/header.html}
 
-<header class="page-header">
+<header class="header page-header">
     <h1 class="hidden">{$blog.title}</h1>   
 </header>   
 
@@ -10,17 +10,15 @@
             <div class="section">
                 <article class="post">
                     <div class="row">
-
                         <div class="col-xs-12">
                             {if: $post.cover_photo}
                                 <figure class="post-thumbnail single-post-thumbnail">
-                                    <img src="{$post.cover_url}" alt="">
+                                    <img class="post-img" src="{$post.cover_url}" alt="">
                                 </figure>
                             {/if}
 
                             <div class="post-header post-margin">
                                 <h2 class="post-title">{$post.title}</h2>
-
                                 <div class="post-meta">
                                     <p class="post-meta-item">{$post.published_at}</p> 
                                                                                 
@@ -35,11 +33,9 @@
                     
                                 </div>   
                             </div>
-
                             <div class="post-content post-margin">
                                 {$post.content}
                             </div>
-
                             <div class="post-share">
                                  <a href="http://twitter.com/home?status={?= urlencode($post.url) ?}" class="share-btn twitter-btn">
                                     <i class="fa fa-twitter" data-toggle="tooltip" title="" data-original-title="Twitter"></i>
@@ -60,14 +56,11 @@
                             </div>  
 
                         </div>
-
                     </div>
-
                     <div class="post-comments">
                         <div id="disqus_thread"></div>
                         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
                     </div>
-
                 </article>   
             </div>  
         </div>
