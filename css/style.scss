@@ -1,23 +1,23 @@
 /*
 Author: Michał Strumpf
-Version: 1.0
+Version: 1.1
 Template Name: Hello
 */
 
 // Colors
-$color-primary: #401080;
-$color-secondary: #324055;
-$color-font: #8b98a8;
-$color-border: #eee;
-$color-post-meta: #afbac9;
+$first-color: #401080;
+$second-color: #324055;
+$third-color: #afbac9;
+$font-color: #8b98a8;
+$border-color: #eee;
 
 // Font weight
 $font-weight-first: 700;
 $font-weight-second: 400;
 
 // Font
-$font-family-primary: 'Lato', sans-serif;
-$font-family-secondary: 'Raleway', sans-serif;
+$font-family-first: 'Lato', sans-serif;
+$font-family-second: 'Raleway', sans-serif;
 
 // Transition
 @mixin transition($param, $time) {
@@ -33,31 +33,31 @@ body {
 
 // Headings
 h1, h2, h3, h4, h5, h6 {
-	font-family: $font-family-secondary;
+	font-family: $font-family-second;
 	font-weight: $font-weight-first;	
-	color: $color-secondary;
+	color: $second-color;
 	margin: 0 0 5px 0;
 }
 
 // Paragraph
 p {
-	font-family: $font-family-primary;
+	font-family: $font-family-first;
 	font-weight: $font-weight-second;
 	font-size: 15px;
 	line-height: 2;
-	color: $color-font; 
+	color: $font-color; 
 	word-wrap: break-word;
 }
 
 // Link
 a {
-	font-family: $font-family-primary;
-	color: $color-primary; 
+	font-family: $font-family-first;
+	color: $first-color; 
 	text-decoration: none;
 	@include transition(color, .2s);
 
 	&:hover, &:focus {
-		color: lighten($color-primary, 30%);
+		color: lighten($first-color, 30%);
 		text-decoration: none;
 		outline: 0;
 	}	
@@ -73,7 +73,7 @@ img {
 	height: 100px;
 	width: 100%;
 	background-color: #fff;
-	border-bottom: 1px solid $color-border;
+	border-bottom: 1px solid $border-color;
 	z-index: 4;	
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -81,10 +81,10 @@ img {
 	position: fixed;
 
 	.navbar-brand {
-		font-family: $font-family-secondary;
+		font-family: $font-family-second;
 		font-weight: $font-weight-first;
 		font-size: 25px;
-		color: $color-primary;
+		color: $first-color;
 		height: 50px;
 		line-height: 50px;
 		margin-top: 25px;
@@ -93,7 +93,7 @@ img {
 		@include transition(color, .4s);
 
 		&:hover {
-			color: $color-secondary;
+			color: $second-color;
 		}
 	}
 
@@ -109,10 +109,10 @@ img {
 			list-style-type: none;
 
 			> a {
-				font-family: $font-family-secondary;
+				font-family: $font-family-second;
 				font-weight: $font-weight-first;
 				font-size: 14px;
-				color: $color-font;
+				color: $font-color;
 				line-height: 50px;
 				height: 50px;
 				padding-left: 5px;
@@ -123,13 +123,13 @@ img {
 				@include transition(all, .3s);
 
 				&:hover {
-					color: $color-primary;
+					color: $first-color;
 				}
 			}
 
 			&.active {
 				> a {
-					color: $color-primary;
+					color: $first-color;
 				}
 			}
 
@@ -139,8 +139,8 @@ img {
 					margin-top: 40px;
 					min-width: 150px;
 					background-color: #fff;
-					-webkit-box-shadow: 0 2px 5px rgba(0,0,0,.2);
-					box-shadow: 0 2px 5px rgba(0,0,0,.2);
+					border-left: 1px solid $border-color;
+					border-right: 1px solid $border-color;
 					visibility: hidden;
 					opacity: 0;
 					padding: 0;
@@ -151,21 +151,22 @@ img {
 						list-style-type: none;
 
 						> a {
-							font-family: $font-family-secondary;
+							font-family: $font-family-second;
 							font-weight: $font-weight-first;
 							font-size: 13px;
-							color: $color-font;
+							color: $font-color;
 							display: block;
 							padding: 10px 14px;
+							border-bottom: 1px solid $border-color;
 
 							&:hover {
-								color: $color-primary;
+								color: $first-color;
 							}
 						}
 
 						&.active {
 							> a {
-								color: $color-primary;
+								color: $first-color;
 							}
 						}
 					}
@@ -173,7 +174,7 @@ img {
 					&.toggled {
 						opacity: 1;
 						visibility: visible;
-						margin-top: 30px;
+						margin-top: 25px;
 					}
 				}
 
@@ -210,7 +211,7 @@ img {
 		position: absolute;
 	    width: 36px;
 	    height: 3px;
-	    background-color: $color-secondary;
+	    background-color: $second-color;
 	    border-radius: 0;
 	    left: 0;
 		@include transition(all, .3s);
@@ -251,9 +252,26 @@ img {
 	}
 }
 
+#mobile-background {
+	background: rgba(0, 0, 0, .7);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 3;
+	visibility: hidden;
+	opacity: 0;
+	@include transition(all, .3s);
+
+	&.toggled {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
 /*---------- 4. Header ----------*/
 .header {
-	background-color: $color-primary;
+	background-color: $first-color;
 	background-repeat: no-repeat;
 	background-position: top; 
 	background-size: cover;
@@ -278,10 +296,10 @@ img {
 /*---------- 5. Author area ----------*/
 .author-area {
 	padding: 40px 0;
-	background-color: $color-primary;
+	background-color: $first-color;
 
 	.author-name {
-		font-family: $font-family-secondary;
+		font-family: $font-family-second;
 		font-weight: $font-weight-first;
 		font-size: 30px;
 		color: #fff;		
@@ -293,7 +311,7 @@ img {
 		border-radius: 50%;
 		margin-top: -10px;
 		margin-right: 15px;
-		border: 4px solid darken($color-primary, 6%);
+		border: 4px solid darken($first-color, 6%);
 		float: left;
 	}
 
@@ -317,7 +335,7 @@ img {
 
 			&:hover {
 				i {
-					color: lighten($color-primary, 30%);
+					color: lighten($first-color, 30%);
 				}
 			}
 		}
@@ -337,9 +355,9 @@ img {
 	// List
 	ol, ul {
 		> li {
-			font-family: $font-family-secondary;
+			font-family: $font-family-second;
 			font-weight: $font-weight-first;	
-			color: $color-font;
+			color: $font-color;
 			margin-bottom: 5px;
 		}		
 	}
@@ -357,7 +375,7 @@ img {
 	// Quote
 	blockquote {
 		color: #fff;
-		background-color: $color-primary;
+		background-color: $first-color;
 		padding: 5px 10px;
 
 		p {
@@ -386,9 +404,9 @@ img {
 
 		tr {
 			td {
-				font-family: $font-family-secondary;
+				font-family: $font-family-second;
 				font-weight: $font-weight-first;	
-				color: $color-font;		
+				color: $font-color;		
 				border: 1px solid #ddd;
 				padding: 8px;
 			}
@@ -425,66 +443,56 @@ img {
 		position: relative;
 
 		.post-img {
+			min-width: 100%;
 			width: auto;
 			max-width: none;
-			min-height: 100%;
-			left: 0%;
-			position: absolute;
+			max-height: 100%;
+			position: relative;
+    		left: 50%;
+    		-webkit-transform: translate(-50%, 0);
+    		transform: translate(-50%, 0);
 			@include transition(all, .5s);
 		}
 
 		&:hover {
 			.post-img {
-				left: 100%;
-				transform: translate(-100%,0);
-				-webkit-transform: translate(-100%,0);
+				-webkit-transform: translate(-50%, 0) scale(1.1);
+				transform: translate(-50%, 0) scale(1.1);
 			}
 		}
 	}
 
 	.single-post-thumbnail {
-		.post-img {
-			left: 50%;
-			-webkit-transform: translateX(-50%);
-			transform: translateX(-50%);
-		}
-
-		&:hover {
-			.post-img {
-				left: 50%;
-				-webkit-transform: translateX(-50%) scale(1.1);
-				transform: translateX(-50%) scale(1.1);
-			}
-		}
+		height: auto;
 	}
 
 	// Header title, meta
 	.post-header {
 		.post-title {
 			font-size: 23px;
-			color: $color-secondary;
+			color: $second-color;
 			display: inline-block;
 			margin-top: 26px;
 		    @include transition(color, .4s);
 
 		    &:hover {
-		    	color: $color-primary;	
+		    	color: $first-color;	
 		    }
 		}
 
 		.post-meta {
 			.post-meta-item {
 				font-size: 12px;
-				color: $color-post-meta;
+				color: $third-color;
 				display: inline-block;
 				margin-right: 10px;
 				margin-top: 0;
 
 				.post-tag {
-					color: $color-post-meta;
+					color: $third-color;
 
 					&:hover {
-						color: $color-secondary;
+						color: $second-color;
 					}
 				}
 			}
@@ -493,30 +501,33 @@ img {
 
 	// Share buttons
 	.post-share {
-		text-align: center;
-		padding: 10px 0;
-		background-color: $color-primary;
+		margin: 0 30px;
 
 		.share-btn  {
 			font-size: 12px;
 			color: #fff;
 			height: 30px;
-			margin: 5px;
+			margin-right: 10px;
 			padding: 0 10px;
 			display: inline-block;
 			line-height: 30px;
 			@include transition(background-color, .3s);
 		
+			// Twitter btn
 			&.twitter-btn {
 				background-color: #1da1f2;
+				box-shadow: 0 0 0 0 rgba(#1da1f2, .8);
 
 				&:hover {
 					background: darken(#1da1f2,10%);
+					
 				}
 			}
-
+			
+			// Facebook btn
 			&.facebook-btn {
 				background-color: #3b5998;
+				box-shadow: 0 0 0 0 rgba(#3b5998, .8);
 
 				&:hover {
 					background: darken(#3b5998,10%);
@@ -525,6 +536,11 @@ img {
 
 			i {
 				margin-right: 10px;
+			}
+
+			&:hover {
+				-webkit-animation: pulse .6s ease-in;
+				animation: pulse .6s ease-in;
 			}
 		}
 	}	
@@ -545,10 +561,10 @@ img {
 		}
 		
 		.post-read-more {
-			font-family: $font-family-secondary;
+			font-family: $font-family-second;
 			font-weight: $font-weight-first;	
 			font-size: 11px;
-			color: $color-secondary;
+			color: $second-color;
 			text-align: center;
 			text-transform: uppercase;
 			line-height: 60px;
@@ -560,44 +576,58 @@ img {
 			@include transition(color, .4s);
 
 			&:hover {
-				color: $color-font;
+				color: $font-color;
 			}
 		}		
 
 		// Profile
 		.post-profile {
-			margin: 60px 0;
-			text-align: center;
+			padding: 40px;
+			margin-top: 30px;
+			background-color: darken(#fff, 2%);
+			border-top: 1px solid $border-color;
+			border-bottom: 1px solid $border-color;
+
+			.profile-header {
+				padding: 12px 30px;
+				background-color: $border-color;
+			}
 
 			.profile-picture {
-				width: 120px;
-				height: 120px;
-				border-radius: 50%;
-				margin: 10px;
+				width: 80px;
+				height: 80px;
+				margin-right: 20px;
+				float: left;
 			}
 
 			.profile-name {
 				font-size: 20px;
-				color: $color-primary;		
-			}
+				color: $first-color;
+				margin-left: 100px;	
 
+				&::after {
+					display: block;
+					clear: both;
+				}
+			}
+	
 			.profile-description {
-				font-size: 13px;
-				color: $color-font;
-				margin: 20px 150px;
+				font-size: 14px;
+				color: $font-color;
+				margin-top: 8px;
 			}
 		}	
 	}
 
 	// Single post margin
 	.post-margin {
-		margin-left: 28px;
-		margin-right: 28px;
+		margin-left: 30px;
+		margin-right: 30px;
 	}
 
 	// Disqus
 	.post-comments {
-		padding: 28px;
+		margin: 30px;
 	}
 }
 
@@ -615,10 +645,10 @@ img {
 		box-shadow: 0 2px 5px #ddd;
 
 		> a {
-			font-family: $font-family-secondary;
+			font-family: $font-family-second;
 			font-weight: $font-weight-first;	
 			font-size: 13px;
-			color: $color-secondary;
+			color: $second-color;
 			line-height: 80px;
 			text-align: center;
 			width: 100%;	
@@ -627,7 +657,7 @@ img {
 
 			&:hover, &:focus {
 				color: #fff;
-				background-color: $color-primary;	
+				background-color: $first-color;	
 			}	
 		}
 	}
@@ -641,10 +671,10 @@ form {
 		margin-top: 30px;
 
 		label {
-			font-family: $font-family-secondary;
+			font-family: $font-family-second;
 			font-weight: $font-weight-first;
 			font-size: 13px;
-		    color: $color-secondary;
+		    color: $second-color;
 		    margin-bottom: 10px;
 		    text-align: left;	
 		    display: block;
@@ -653,7 +683,7 @@ form {
 		input, textarea {
 			min-height: 40px;
 			padding: 10px;
-		    border: 1px solid $color-border;
+		    border: 1px solid $border-color;
 		    width: 100%;
 		    background: transparent;
 		    display: block;
@@ -663,14 +693,14 @@ form {
 		    @include transition(all, .4s);
 
 		    &:focus {
-		    	border: 1px solid $color-primary;	
+		    	border: 1px solid $first-color;	
 		    }
 		}
 	}
 
 	// Submit button
 	.btn-default {
-		font-family: $font-family-secondary;
+		font-family: $font-family-second;
 		font-weight: $font-weight-first;	
 		font-size: 12px;
 		color: #fff;
@@ -678,13 +708,13 @@ form {
 		height: 50px;
 		width: 150px;
 		cursor: pointer;
-		background-color: $color-primary;
+		background-color: $first-color;
 		border: 0;
 		@include transition(all, .3s);
 
 		&:hover, &:focus {
-			color: $color-secondary;
-			background-color: $color-border;
+			color: $second-color;
+			background-color: $border-color;
 			outline: 0;	
 		}
 	}
@@ -696,13 +726,13 @@ form[name=langSwitcher] {
 	margin-left: 15px;
 
 	select {
-		font-family: $font-family-secondary;
+		font-family: $font-family-second;
 		font-weight: $font-weight-first;
 		font-size: 13px;
-		color: $color-font;
+		color: $font-color;
 		height: 40px;
 		border: 0;
-		background-color: $color-border;
+		background-color: $border-color;
 		cursor: pointer;	
 		box-shadow: none;
 		-moz-appearance: none;
@@ -710,7 +740,7 @@ form[name=langSwitcher] {
 		@include transition(all, .3s);
 
 		&:focus {
-			color: $color-primary;
+			color: $first-color;
 			box-shadow: none;
 		}
 	}
@@ -726,7 +756,7 @@ form[name=langSwitcher] {
 	.thumbnail {
 		text-align: center;
 		background-color: #fff;
-		border: 1px solid $color-border;
+		border: 1px solid $border-color;
 	    display: inline-block;
 	    margin-bottom: 30px;
 	    width: 100%;
@@ -742,7 +772,7 @@ form[name=langSwitcher] {
 
 			h3 {
 				font-size: 20px;
-				color: $color-secondary;
+				color: $second-color;
 				margin-top: 0;
 			}
 
@@ -815,7 +845,7 @@ form[name=langSwitcher] {
 
 /*---------- 12. Footer ----------*/
 .footer {
-	border-top: 1px solid $color-border;
+	border-top: 1px solid $border-color;
 	margin-top: 60px;
 	background-color: #fff;
 	
@@ -835,16 +865,16 @@ form[name=langSwitcher] {
 			&.widget-latest-post:before {
 				font-family: FontAwesome;
    				content: "\f105";
-   				color: $color-primary;
+   				color: $first-color;
    				margin-right: 10px;
 			}
 
 			> a {
 				font-size: 14px;
-				color: $color-font;
+				color: $font-color;
 
 				&:hover {
-					color: $color-primary;
+					color: $first-color;
 				}
 			}
 
@@ -870,13 +900,13 @@ form[name=langSwitcher] {
 
 			i {
 				font-size: 18px;
-				color: $color-secondary;	
+				color: $second-color;	
 				@include transition(color, .2s);
 			}
 
 			&:hover {
 				i {
-					color: $color-font;
+					color: $font-color;
 				}
 			}
 		}
@@ -884,7 +914,7 @@ form[name=langSwitcher] {
 
 	.footer-copyright {
 		padding: 20px 0;
-		border-top: 1px solid $color-border;
+		border-top: 1px solid $border-color;
 		background-color: #fff;
 
 		p {
@@ -917,6 +947,19 @@ form[name=langSwitcher] {
 	}
 }
 
+// Pulse animation for share buttons
+@-webkit-keyframes pulse {
+	100% {
+		box-shadow: 0 0 0 8px rgba(#fff, 0);
+	}
+}
+
+@keyframes pulse {
+	100% {
+		box-shadow: 0 0 0 8px rgba(#fff, 0);
+	}
+}
+
 // Placeholder
 input, textarea {
 	&::-webkit-input-placeholder { color: #aaa !important; }
@@ -937,7 +980,7 @@ input, textarea {
   	.navbar {
   		.navigation-container {
 			float: right;		
-			background-color: darken($color-primary, 4%);
+			background-color: #fff;
 			height: 100%;
 			min-width: 250px;
 			overflow-y: scroll;
@@ -956,55 +999,36 @@ input, textarea {
 			> li {
 				display: block;
 
-				&.active {
-					> a {
-						background-color: #fff;
-					}
-				}
-
 				> a {
 					text-align: right;
 					line-height: 46px;
 					height: 46px;
 					padding-right: 25px;
 					margin: 0;
-					border: 0;
+					border-bottom: 1px solid $border-color;
 
 					&:hover {
-						color: $color-primary;
-						background-color: #fff;
-						border: 0;	
+						color: $first-color;
 					}
 				}	
 
 				// Dropdown
 				&.dropdown {
 					> .dropdown-menu {
-						margin-top: 0;
-						padding: 0;
 						height: 0;
-						box-shadow: none;
+						margin-top: 0;
 						position: relative;
+						overflow: hidden;
 
 						> li {
 							> a {
 								text-align: right;
-								line-height: 50px;
-								background-color: darken($color-primary, 8%);
-								height: 50px;
+								line-height: 40px;
+								height: 40px;
 								margin: 0;
 								padding: 0;
 								padding-right: 25px;
-
-								&:hover {
-									background-color: #fff;
-								}
-							}
-
-							&.active {
-								a {
-									background-color: #fff;
-								}
+								background-color: darken(#fff, 3%);
 							}
 						}
 
@@ -1027,21 +1051,10 @@ input, textarea {
 			height: 40px;
 			width: 100%;
 			padding: 0 20px;
-			background-color: darken($color-primary, 8%);
+			background-color: darken($first-color, 8%);
 
 			&:focus {
 				color: #fff;
-			}
-		}
-	}
-
-	// Post
-	.post {
-		.post-footer {
-			.post-profile { 
-				.profile-description {
-					margin: 20px;
-				}
 			}
 		}
 	}
@@ -1057,6 +1070,19 @@ input, textarea {
 			width: 100%;
 		}
 	}
+}
+
+@media (max-width: 867px) {
+	.post {	
+		.post-thumbnail {
+			height: auto;
+
+			.post-img {
+				width: 100%;
+				max-height: none;
+			}
+		}
+	}	
 }
 
 @media (max-width: 768px) {

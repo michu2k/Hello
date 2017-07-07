@@ -2,7 +2,7 @@
 
 	Name: Hello
 	Author: Michał Strumpf
-	Version: 1.0
+	Version: 1.1
 	Batflat: 1.3.X
 
 // How to install ?
@@ -38,6 +38,18 @@
 	Sorry, but Carousel and Debug bar (for developers) are not supported :(
 
 // Changelog
+
+	1.1
+	- Changed author area in article
+	- Images in articles got better animations 
+	- Share buttons have pulse animation  
+	- Added dark background when mobile menu is open
+	- Changed colors in mobile menu
+	- Dropdown got animation fix 
+	- Dropdown mobile fix
+	- Changed var names in .scss file
+	- New css compressed file, used by default
+	- Carousel still not supported :)
 
 	1.0 
 	- Theme published
