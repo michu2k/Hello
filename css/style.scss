@@ -1,6 +1,6 @@
 /*
 Author: Michał Strumpf
-Version: 1.1
+Version: 1.2
 Template Name: Hello
 */
 
@@ -59,7 +59,6 @@ a {
 	&:hover, &:focus {
 		color: lighten($first-color, 30%);
 		text-decoration: none;
-		outline: 0;
 	}	
 }
 
@@ -204,7 +203,6 @@ img {
 	display: none;
 	padding: 5px 0;
 	border: 0;
-	outline: 0;
 	background: none;
 
 	.icon-bar {
@@ -715,7 +713,6 @@ form {
 		&:hover, &:focus {
 			color: $second-color;
 			background-color: $border-color;
-			outline: 0;	
 		}
 	}
 }
@@ -796,7 +793,6 @@ form[name=langSwitcher] {
 	display: none;
 	overflow: hidden;
 	-webkit-overflow-scrolling: touch;
-	outline: 0;
 }
 
 .modal-backdrop {

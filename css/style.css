@@ -1,6 +1,6 @@
 /*
 Author: Michał Strumpf
-Version: 1.1
+Version: 1.2
 Template Name: Hello
 */
 /*---------- 1. Basic ----------*/
@@ -35,7 +35,6 @@ a {
 a:hover, a:focus {
   color: #8942e7;
   text-decoration: none;
-  outline: 0;
 }
 
 img {
@@ -158,7 +157,6 @@ img {
   display: none;
   padding: 5px 0;
   border: 0;
-  outline: 0;
   background: none;
 }
 #mobile-btn .icon-bar {
@@ -576,7 +574,6 @@ form .btn-default {
 form .btn-default:hover, form .btn-default:focus {
   color: #324055;
   background-color: #eee;
-  outline: 0;
 }
 
 /*---------- 9. LangSwitcher ----------*/
@@ -648,7 +645,6 @@ form[name=langSwitcher] select:focus {
   display: none;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
-  outline: 0;
 }
 
 .modal-backdrop {
