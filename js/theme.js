@@ -58,6 +58,7 @@ $(function() {
     });
 
     // Set translations
+    $('#author_name').html(file.author_name);
     $('#follow_me').html(translations[0]);
     $('#created').html(translations[1]);
     $('#share').html(translations[2]);
