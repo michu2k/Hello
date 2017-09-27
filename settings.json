@@ -1,0 +1,19 @@
+"author_name": "Kate Doe",
+"social": {
+	"facebook": "https://www.facebook.com/",
+	"twitter": "https://twitter.com/",
+	"instagram": "https://www.instagram.com/",
+	"linkedin": "https://www.linkedin.com/"
+},
+"pl_polski": {
+	"follow_me": "Obserwuj mnie",
+	"created": "Stworzone przez ",
+	"share": "Udostępnij",
+	"tweet": "Tweetnij"
+},
+"en_english": {
+	"follow_me": "Follow me",
+	"created": "Created by ",
+	"share": "Share",
+	"tweet": "Tweet"
+},

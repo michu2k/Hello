@@ -1,8 +1,6 @@
 {template: inc/header.html}
 
-<header class="header page-header">
-    <h1 class="hidden">{$blog.title}</h1>   
-</header>   
+<header class="header"></header>   
 
 <div class="container">
     <div class="row">
@@ -36,20 +34,22 @@
                                 {$post.content}
                             </div>
                             <div class="post-share">
-                                 <a href="http://twitter.com/home?status={?= urlencode($post.url) ?}" class="share-btn twitter-btn">
+                                <a href="http://twitter.com/home?status={?= urlencode($post.url) ?}" class="share-btn twitter-btn">
                                     <i class="fa fa-twitter" data-toggle="tooltip" title="" data-original-title="Twitter"></i>
-                                    Tweet
+                                    <span id="tweet">Tweet</span>
                                 </a>
                                 <a href="https://www.facebook.com/sharer.php?u={?= urlencode($post.url) ?}" class="share-btn facebook-btn">
                                     <i class="fa fa-facebook" data-toggle="tooltip" title="" data-original-title="Facebook"></i>
-                                    Share
+                                    <span id="share">Share</span>
                                 </a>
                             </div>
 
                             <div class="post-footer">
                                 <div class="post-profile">
-                                    <img src="{?= $post.author.avatar ?}" class="profile-picture" alt="">  
-                                    <h2 class="profile-name">{$post.author.name}</h2>
+                                    <div class="post-flex-container">
+                                        <img src="{?= $post.author.avatar ?}" class="profile-thumbnail" alt="">  
+                                        <h2 class="profile-name">{$post.author.name}</h2>
+                                    </div>
                                     <p class="profile-description">{$post.author.description}</p>
                                 </div>
                             </div>  

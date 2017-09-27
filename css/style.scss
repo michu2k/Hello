@@ -1,6 +1,6 @@
 /*
 Author: Michał Strumpf
-Version: 1.2
+Version: 1.3
 Template Name: Hello
 */
 
@@ -16,8 +16,8 @@ $font-weight-first: 700;
 $font-weight-second: 400;
 
 // Font
-$font-family-first: 'Lato', sans-serif;
-$font-family-second: 'Raleway', sans-serif;
+$font-family-first: 'Raleway', sans-serif;
+$font-family-second: 'Lato', sans-serif;
 
 // Transition
 @mixin transition($param, $time) {
@@ -25,33 +25,60 @@ $font-family-second: 'Raleway', sans-serif;
 	transition: $param $time; 
 }
 
+/*
+	Table of Contents
+
+	1. Basic
+	2. Navigation
+		2.1 Mobile button
+		2.2 Mobile background
+	3. Header
+	4. Author area
+	5. Section
+	6. Blog
+		6.1 Pagination
+	7. Contact
+	8. LangSwitcher
+	9. Gallery
+	9.1 Modal
+	10. Alerts
+	11. Footer
+	12. Others
+		12.1 Grid fix
+		12.2 Pulse animation
+		12.3 Placeholder
+	13. Media query
+		13.1 min-width: 768px
+		13.2 min-width: 992px
+*/
+
 /*---------- 1. Basic ----------*/
+// Body
 body {
+	font-family: $font-family-second;
+	font-weight: $font-weight-second;
+	color: $font-color; 
 	background-color: #efefef; 
 	padding-top: 100px;
 }
 
 // Headings
 h1, h2, h3, h4, h5, h6 {
-	font-family: $font-family-second;
+	font-family: $font-family-first;
 	font-weight: $font-weight-first;	
 	color: $second-color;
-	margin: 0 0 5px 0;
+	margin: 0;
 }
 
 // Paragraph
 p {
-	font-family: $font-family-first;
-	font-weight: $font-weight-second;
 	font-size: 15px;
 	line-height: 2;
-	color: $font-color; 
 	word-wrap: break-word;
 }
 
 // Link
 a {
-	font-family: $font-family-first;
 	color: $first-color; 
 	text-decoration: none;
 	@include transition(color, .2s);
@@ -63,9 +90,7 @@ a {
 }
 
 // Image
-img {
-	max-width: 100%; 
-}
+img { max-width: 100%; }
 
 /*---------- 2. Navigation ----------*/
 .navbar {
@@ -73,114 +98,104 @@ img {
 	width: 100%;
 	background-color: #fff;
 	border-bottom: 1px solid $border-color;
-	z-index: 4;	
+	z-index: 4;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	top: 0;
 	position: fixed;
 
+	// Flex container
+	.navbar-flex-container {
+		margin-top: 25px;
+		display: flex; 
+		justify-content: space-between;
+	}
+	
+	// Brand
 	.navbar-brand {
-		font-family: $font-family-second;
+		font-family: $font-family-first;
 		font-weight: $font-weight-first;
 		font-size: 25px;
 		color: $first-color;
-		height: 50px;
-		line-height: 50px;
-		margin-top: 25px;
-		padding-right: 5px;
-		display: inline-block;
+		margin-top: 10px;
 		@include transition(color, .4s);
 
-		&:hover {
-			color: $second-color;
-		}
+		&:hover { color: $second-color; }
 	}
 
-	.navigation-container {
-		float: right;
+	// Mobile
+  	.navbar-mobile-container {
+		background-color: #fff;
+		height: 100%;
+		min-width: 250px;
+		overflow-y: scroll;
+		z-index: 5;		
+		top: 100px;
+		right: -250px;
+		position: fixed;
+		@include transition(all, .3s);
 	}
 
 	.navbar-navigation {
 		margin: 0;
+		padding: 0;
 
 		> li {
-			display: inline-block;
+			display: block;
 			list-style-type: none;
 
 			> a {
-				font-family: $font-family-second;
+				font-family: $font-family-first;
 				font-weight: $font-weight-first;
 				font-size: 14px;
 				color: $font-color;
 				line-height: 50px;
+				width: 100%;
 				height: 50px;
-				padding-left: 5px;
-				padding-right: 5px;
-				margin-top: 25px;
-				margin-left: 25px;
 				display: block;
-				@include transition(all, .3s);
+				padding: 0 8px;
+				border-bottom: 1px solid $border-color;
 
-				&:hover {
-					color: $first-color;
-				}
-			}
-
-			&.active {
-				> a {
-					color: $first-color;
-				}
-			}
+				&:hover { color: $first-color; }
+			}	
 
 			// Dropdown
 			&.dropdown {
 				> .dropdown-menu {
-					margin-top: 40px;
-					min-width: 150px;
-					background-color: #fff;
-					border-left: 1px solid $border-color;
-					border-right: 1px solid $border-color;
-					visibility: hidden;
-					opacity: 0;
 					padding: 0;
-					position: absolute;
-					@include transition(all, .4s);
+					height: 0;
+					visibility: hidden;
 
 					> li {
 						list-style-type: none;
 
-						> a {
-							font-family: $font-family-second;
+						> a {								
+							font-family: $font-family-first;
 							font-weight: $font-weight-first;
 							font-size: 13px;
 							color: $font-color;
 							display: block;
-							padding: 10px 14px;
+							background-color: darken(#fff, 3%);
+							line-height: 40px;
+							height: 40px;
+							padding-left: 10px;
 							border-bottom: 1px solid $border-color;
 
-							&:hover {
-								color: $first-color;
-							}
+							&:hover { color: $first-color; }
 						}
 
-						&.active {
-							> a {
-								color: $first-color;
-							}
-						}
+						&.active > a { color: $first-color; }
 					}
 
 					&.toggled {
-						opacity: 1;
-						visibility: visible;
-						margin-top: 25px;
+						height: auto;
+						visibility: visible; 
 					}
 				}
 
 				// Dropdown symbol
 				.caret {
 					display: inline-block;
-					width: 0;
 					margin-left: 2px;
 					vertical-align: middle;
 					border-top: 4px solid;
@@ -192,73 +207,63 @@ img {
 	}
 }
 
-/*---------- 3. Mobile button ----------*/
+/*---------- 2.1 Mobile button ----------*/
 #mobile-btn {
-	position: relative;
 	width: 36px;
-	height: 31px;
-	float: right;
-	margin-top: 34px;
+	height: 30px;
+	margin-top: 10px;
 	cursor: pointer;
-	display: none;
-	padding: 5px 0;
+	padding: 0;
 	border: 0;
 	background: none;
+	position: relative;
 
 	.icon-bar {
-		position: absolute;
-	    width: 36px;
-	    height: 3px;
+	    width: 100%;
+	    height: 2px;
 	    background-color: $second-color;
 	    border-radius: 0;
 	    left: 0;
+	    position: absolute;
 		@include transition(all, .3s);
 
 		&:nth-child(1) {
-      		top: 5px;
+      		top: 6px;
       		right: 0;
       		left: auto;
       	}
 
-      	&:nth-child(2),&:nth-child(3) {
-      		top: 14px; 
-      	}
-
-      	&:nth-child(4) {
-      		top: 23px;
-      	}
+      	&:nth-child(2), &:nth-child(3) { top: 14px; }
+      	&:nth-child(4) { top: 22px; }
 	}	
 
 	&.toggled {
 		.icon-bar {
 			&:nth-child(2) {
 				-webkit-transform: rotate(135deg);
-			    -o-transform: rotate(135deg);
 			    transform: rotate(135deg);
 			}
 
 			&:nth-child(3) {
 				-webkit-transform: rotate(45deg);
-			    -o-transform: rotate(45deg);
 			    transform: rotate(45deg);		
 			}
 
-			&:nth-child(1), &:nth-child(4) {
-				width: 0;
-			}
+			&:nth-child(1), &:nth-child(4) { width: 0; }
 		}
 	}
 }
 
+/*---------- 2.2 Mobile background ----------*/
 #mobile-background {
 	background: rgba(0, 0, 0, .7);
 	width: 100%;
 	height: 100%;
-	position: fixed;
-	top: 0;
 	z-index: 3;
 	visibility: hidden;
+	top: 0;
 	opacity: 0;
+	position: fixed;
 	@include transition(all, .3s);
 
 	&.toggled {
@@ -267,80 +272,87 @@ img {
 	}
 }
 
-/*---------- 4. Header ----------*/
+/*---------- 3. Header ----------*/
 .header {
 	background-color: $first-color;
-	background-repeat: no-repeat;
-	background-position: top; 
-	background-size: cover;
-	min-height: 450px;
 
-	&.page-header {
-		min-height: 0;
+	.header-title {
+		font-size: 30px;
+		color: #fff;
+		margin-top: 30px;
+	}
 
-		.page-header-title {
-			margin-top: 30px;
-			color: #fff;
-		}
+	.header-desc {
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
 
-		.page-header-desc {
-			font-size: 14px;
-			margin-top: 0;
-			margin-bottom: 20px;
-		}
+	&.blog-header {
+		background-repeat: no-repeat;
+		background-position: top; 
+		background-size: cover;
+		min-height: 450px;
 	}
 }
 
-/*---------- 5. Author area ----------*/
+/*---------- 4. Author area ----------*/
 .author-area {
 	padding: 40px 0;
 	background-color: $first-color;
 
+	// Flex container
+	.author-flex-container { display: flex; }
+
+	// Name
 	.author-name {
-		font-family: $font-family-second;
+		font-family: $font-family-first;
 		font-weight: $font-weight-first;
 		font-size: 30px;
-		color: #fff;		
+		color: #fff;	
+		align-self: center;	
 	}
 
-	.author-image {
-		width: 50px;
-		height: 50px;
+	// Thumbnail
+	.author-thumbnail {
+		width: 55px;
+		height: 55px;
 		border-radius: 50%;
-		margin-top: -10px;
 		margin-right: 15px;
-		border: 4px solid darken($first-color, 6%);
-		float: left;
+		border: 3px solid darken($first-color, 6%);
 	}
 
+	// Description
 	.author-description {
-		margin: 22px 0;
+		margin: 15px 0; 
 
-		p {
+		p { 
 			font-size: 14px;
+			line-height: 1.7; 
 		}
 	}
 
+	// Social icons
 	.social {
-		a {
-			margin-right: 18px;
+		margin-top: 5px;
+		display: inline-block;
 
-			i {
-				font-size: 16px;
-				color: #fff;	
+		a {
+			margin-right: 14px;
+
+			&:last-child { margin: 0; }
+
+			> i {
+				font-size: 15px;
+				color: #fff;
 				@include transition(color, .2s);
 			}
 
-			&:hover {
-				i {
-					color: lighten($first-color, 30%);
-				}
-			}
+			&:hover > i { color: lighten($first-color, 30%); }
 		}
 	}
 }
 
-/*---------- 6. Section ----------*/
+/*---------- 5. Section ----------*/
 .section {
 	&.page-section {
 		padding: 20px;
@@ -353,7 +365,7 @@ img {
 	// List
 	ol, ul {
 		> li {
-			font-family: $font-family-second;
+			font-family: $font-family-first;
 			font-weight: $font-weight-first;	
 			color: $font-color;
 			margin-bottom: 5px;
@@ -396,15 +408,13 @@ img {
 		border-collapse: collapse;
 		backlground-color: transparent;
 
-		&.table-bordered {
-			border: 1px solid #ddd;
-		}
+		&.table-bordered { border: 1px solid #ddd; }
 
 		tr {
 			td {
-				font-family: $font-family-second;
+				font-family: $font-family-first;
 				font-weight: $font-weight-first;	
-				color: $font-color;		
+				color: $font-color;
 				border: 1px solid #ddd;
 				padding: 8px;
 			}
@@ -420,7 +430,7 @@ img {
 	}
 }
 
-/*---------- 7. Blog ----------*/
+/*---------- 6. Blog ----------*/
 .post {
 	margin-top: 60px;
 	background-color: #fff;
@@ -433,35 +443,24 @@ img {
 		position: relative;
 	}
 
+	// Thumbnail
 	.post-thumbnail {
 		margin: 0;
 		width: 100%;
-		height: 300px;
 		overflow: hidden;
-		position: relative;
 
 		.post-img {
 			min-width: 100%;
-			width: auto;
-			max-width: none;
-			max-height: 100%;
-			position: relative;
-    		left: 50%;
-    		-webkit-transform: translate(-50%, 0);
-    		transform: translate(-50%, 0);
+			width: 100%;
 			@include transition(all, .5s);
 		}
 
 		&:hover {
 			.post-img {
-				-webkit-transform: translate(-50%, 0) scale(1.1);
-				transform: translate(-50%, 0) scale(1.1);
+				-webkit-transform: scale(1.1);
+				transform: scale(1.1);
 			}
 		}
-	}
-
-	.single-post-thumbnail {
-		height: auto;
 	}
 
 	// Header title, meta
@@ -473,9 +472,7 @@ img {
 			margin-top: 26px;
 		    @include transition(color, .4s);
 
-		    &:hover {
-		    	color: $first-color;	
-		    }
+		    &:hover { color: $first-color; }
 		}
 
 		.post-meta {
@@ -489,9 +486,7 @@ img {
 				.post-tag {
 					color: $third-color;
 
-					&:hover {
-						color: $second-color;
-					}
+					&:hover { color: $second-color; }
 				}
 			}
 		}
@@ -502,11 +497,11 @@ img {
 		margin: 0 30px;
 
 		.share-btn  {
-			font-size: 12px;
+			font-size: 13px;
 			color: #fff;
 			height: 30px;
 			margin-right: 10px;
-			padding: 0 10px;
+			padding: 2px 12px;
 			display: inline-block;
 			line-height: 30px;
 			@include transition(background-color, .3s);
@@ -516,10 +511,7 @@ img {
 				background-color: #1da1f2;
 				box-shadow: 0 0 0 0 rgba(#1da1f2, .8);
 
-				&:hover {
-					background: darken(#1da1f2,10%);
-					
-				}
+				&:hover { background: darken(#1da1f2,10%); }
 			}
 			
 			// Facebook btn
@@ -527,14 +519,10 @@ img {
 				background-color: #3b5998;
 				box-shadow: 0 0 0 0 rgba(#3b5998, .8);
 
-				&:hover {
-					background: darken(#3b5998,10%);
-				}	
+				&:hover { background: darken(#3b5998,10%); }	
 			}
 
-			i {
-				margin-right: 10px;
-			}
+			i { margin-right: 10px; }
 
 			&:hover {
 				-webkit-animation: pulse .6s ease-in;
@@ -543,12 +531,10 @@ img {
 		}
 	}	
 
-	// content
-	.post-content {
-		margin-bottom: 70px;
-	}
+	// Content
+	.post-content { margin-bottom: 70px; }
 
-	// Footer read more, profile section
+	// Footer
 	.post-footer {
 		&.post-footer-preview {
 			bottom: 0;
@@ -558,8 +544,9 @@ img {
 			position: absolute;
 		}
 		
+		// Read more button
 		.post-read-more {
-			font-family: $font-family-second;
+			font-family: $font-family-first;
 			font-weight: $font-weight-first;	
 			font-size: 11px;
 			color: $second-color;
@@ -573,9 +560,7 @@ img {
 			margin-right: auto;
 			@include transition(color, .4s);
 
-			&:hover {
-				color: $font-color;
-			}
+			&:hover { color: $font-color; }
 		}		
 
 		// Profile
@@ -591,28 +576,25 @@ img {
 				background-color: $border-color;
 			}
 
-			.profile-picture {
-				width: 80px;
-				height: 80px;
+			.profile-thumbnail {
+				width: 70px;
+				height: 70px;
 				margin-right: 20px;
-				float: left;
+				border-radius: 50%;
 			}
 
+			.post-flex-container { display: flex; }
+				
 			.profile-name {
 				font-size: 20px;
 				color: $first-color;
-				margin-left: 100px;	
-
-				&::after {
-					display: block;
-					clear: both;
-				}
+				align-self: center;
 			}
 	
 			.profile-description {
 				font-size: 14px;
 				color: $font-color;
-				margin-top: 8px;
+				margin-top: 10px;
 			}
 		}	
 	}
@@ -624,12 +606,10 @@ img {
 	}
 
 	// Disqus
-	.post-comments {
-		margin: 30px;
-	}
+	.post-comments { margin: 30px; }
 }
 
-// Pagination
+/*---------- 6.1 Pagination ----------*/
 .pagination {
 	margin-top: 60px;
 	margin-bottom: 0;
@@ -643,7 +623,7 @@ img {
 		box-shadow: 0 2px 5px #ddd;
 
 		> a {
-			font-family: $font-family-second;
+			font-family: $font-family-first;
 			font-weight: $font-weight-first;	
 			font-size: 13px;
 			color: $second-color;
@@ -661,7 +641,7 @@ img {
 	}
 }
 
-/*---------- 8. Contact ----------*/
+/*---------- 7. Contact ----------*/
 form {
 	margin: 20px;
 
@@ -669,7 +649,7 @@ form {
 		margin-top: 30px;
 
 		label {
-			font-family: $font-family-second;
+			font-family: $font-family-first;
 			font-weight: $font-weight-first;
 			font-size: 13px;
 		    color: $second-color;
@@ -690,21 +670,19 @@ form {
 		    resize: none;	
 		    @include transition(all, .4s);
 
-		    &:focus {
-		    	border: 1px solid $first-color;	
-		    }
+		    &:focus { border: 1px solid $first-color; }
 		}
 	}
 
 	// Submit button
 	.btn-default {
-		font-family: $font-family-second;
+		font-family: $font-family-first;
 		font-weight: $font-weight-first;	
 		font-size: 12px;
 		color: #fff;
 		margin-top: 30px;
 		height: 50px;
-		width: 150px;
+		width: 100%;
 		cursor: pointer;
 		background-color: $first-color;
 		border: 0;
@@ -717,20 +695,20 @@ form {
 	}
 }
 
-/*---------- 9. LangSwitcher ----------*/
+/*---------- 8. LangSwitcher ----------*/
 form[name=langSwitcher] {
-	margin-right: 0;
-	margin-left: 15px;
+	margin: 10px 15px;
 
 	select {
-		font-family: $font-family-second;
+		font-family: $font-family-first;
 		font-weight: $font-weight-first;
 		font-size: 13px;
 		color: $font-color;
 		height: 40px;
-		border: 0;
+		width: 100%;
 		background-color: $border-color;
-		cursor: pointer;	
+		cursor: pointer;
+		border: 0;
 		box-shadow: none;
 		-moz-appearance: none;
 		-webkit-appearance: none;
@@ -743,24 +721,21 @@ form[name=langSwitcher] {
 	}
 }
 
-/*---------- 10. Gallery ----------*/
+/*---------- 9. Gallery ----------*/
 .gallery {
 	margin: 20px;
 	width: 100%;
-	column-count: 3;
+	column-count: 1;
     column-gap: 20px;
 
+	// Thumbnail
 	.thumbnail {
 		text-align: center;
-		background-color: #fff;
-		border: 1px solid $border-color;
 	    display: inline-block;
 	    margin-bottom: 30px;
 	    width: 100%;
 
-		img {
-			width: auto;
-		}
+		img { width: auto; }
 
 		.caption {
 			margin-top: 10px;
@@ -782,7 +757,7 @@ form[name=langSwitcher] {
 	}
 }
 
-// Modal styles from bootstrap
+/*---------- 9.1 Modal ----------*/
 .modal {
 	position: fixed;
 	top: 0;
@@ -809,12 +784,10 @@ form[name=langSwitcher] {
 	opacity: 0;
 	@include transition(opacity, .2s);
 
-	&.in {
-		opacity: 1;
-	}
+	&.in { opacity: 1; }
 }
 
-/*---------- 11. Alerts ----------*/
+/*---------- 10. Alerts ----------*/
 .alert {
 	padding: 15px;
 	margin-bottom: 20px;
@@ -839,17 +812,18 @@ form[name=langSwitcher] {
 	}
 }
 
-/*---------- 12. Footer ----------*/
+/*---------- 11. Footer ----------*/
 .footer {
-	border-top: 1px solid $border-color;
 	margin-top: 60px;
 	background-color: #fff;
 	
+	// Heading
 	.widget-heading {
 		font-size: 20px;
 		margin-top: 50px;
 	}
 
+	// Content
 	.widget-content {
 		padding: 0;
 		margin: 40px 0;
@@ -858,20 +832,11 @@ form[name=langSwitcher] {
 			list-style-type: none;
 			margin-bottom: 15px;
 
-			&.widget-latest-post:before {
-				font-family: FontAwesome;
-   				content: "\f105";
-   				color: $first-color;
-   				margin-right: 10px;
-			}
-
 			> a {
 				font-size: 14px;
 				color: $font-color;
 
-				&:hover {
-					color: $first-color;
-				}
+				&:hover { color: $first-color; }
 			}
 
 			&.widget-tag {
@@ -887,51 +852,37 @@ form[name=langSwitcher] {
 			}
 		}
 	}
-
+	
+	// Social icons
 	.widget-social {
 		margin: 40px 0;
 
 		a {
 			margin-right: 18px;
 
-			i {
+			> i {
 				font-size: 18px;
 				color: $second-color;	
 				@include transition(color, .2s);
 			}
 
-			&:hover {
-				i {
-					color: $font-color;
-				}
-			}
+			&:hover > i { color: $font-color; }
 		}
 	}
 
+	// Copyright
 	.footer-copyright {
 		padding: 20px 0;
 		border-top: 1px solid $border-color;
-		background-color: #fff;
+		text-align: center;
 
-		p {
-			font-size: 11px;
-			float: left;
-
-			&.theme-author {
-				float: right;
-			}
-		}
+		p { font-size: 11px; }
 	}
 }
 
-/*---------- 13. Others ----------*/
-// Hidden
-.hidden {
-	display: none;
-}
+/*---------- 12. Others ----------*/
 
-// Grid Fix
-// Container
+/*---------- 12.1 Grid fix ----------*/
 .container {
 	margin-left: auto;
 	margin-right: auto;
@@ -943,7 +894,7 @@ form[name=langSwitcher] {
 	}
 }
 
-// Pulse animation for share buttons
+/*---------- 12.2 Pulse animation ----------*/
 @-webkit-keyframes pulse {
 	100% {
 		box-shadow: 0 0 0 8px rgba(#fff, 0);
@@ -956,7 +907,7 @@ form[name=langSwitcher] {
 	}
 }
 
-// Placeholder
+/*---------- 12.3 Placeholder ----------*/
 input, textarea {
 	&::-webkit-input-placeholder { color: #aaa !important; }
 	&:-moz-placeholder { color: #aaa !important; }
@@ -964,73 +915,74 @@ input, textarea {
 	&:-ms-input-placeholder { color: #aaa !important; }
 }
 
-/*---------- 14. Responsive ----------*/
-@media (max-width: 960px) {
+/*---------- 13. Media query ----------*/
+/*---------- 13.1 min-width: 768px ----------*/
+@media (min-width: 768px) {
+	// Gallery columns
+	.gallery { column-count: 2; }
+
+	// Footer
+	.footer {
+		.footer-copyright {
+			.footer-flex-container {
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+	}
+}
+
+/*---------- 13.2 min-width: 992px ----------*/
+@media (min-width: 992px) {
 
 	// Mobile btn
-	#mobile-btn {
-		display: block;
-	}
+	#mobile-btn { display: none; }
 
 	// Navigation
   	.navbar {
-  		.navigation-container {
-			float: right;		
-			background-color: #fff;
-			height: 100%;
-			min-width: 250px;
-			overflow-y: scroll;
-			z-index: 5;		
-			top: 100px;
-			right: -250px;
-			padding: 0;
-			position: fixed;
-			@include transition(all, .3s);
+  		.navbar-mobile-container {
+			overflow: hidden;
+			position: static;
 		}
 
-		.navbar-navigation {	
-			padding: 0;
-			padding-bottom: 100px;
-
+		.navbar-navigation {
 			> li {
-				display: block;
+				display: inline-block;
+				margin-left: 26px;
 
-				> a {
-					text-align: right;
-					line-height: 46px;
-					height: 46px;
-					padding-right: 25px;
-					margin: 0;
-					border-bottom: 1px solid $border-color;
+				> a { 
+					border-bottom: 0;
+					padding: 0;
+				}
 
-					&:hover {
-						color: $first-color;
-					}
-				}	
+				&.active > a { color: $first-color; }
 
 				// Dropdown
 				&.dropdown {
 					> .dropdown-menu {
-						height: 0;
-						margin-top: 0;
-						position: relative;
-						overflow: hidden;
+						margin-top: 35px;
+						min-width: 150px;
+						border-left: 1px solid $border-color;
+						border-right: 1px solid $border-color;
+						opacity: 0;
+						position: absolute;
+						@include transition(all, .4s);
 
 						> li {
+							list-style-type: none;
+
 							> a {
-								text-align: right;
-								line-height: 40px;
-								height: 40px;
-								margin: 0;
-								padding: 0;
-								padding-right: 25px;
-								background-color: darken(#fff, 3%);
+								background-color: #fff;
+
+								&:hover { color: $first-color; }
 							}
+
+							&.active > a { color: $first-color; }
 						}
 
 						&.toggled {
-							height: auto;
-							margin-top: 0;
+							opacity: 1;
+							margin-top: 25px;
 						}
 					}
 				}
@@ -1040,64 +992,45 @@ input, textarea {
 
 	// LangSwitcher
 	form[name=langSwitcher] {
-		margin-right: 10px;
-		margin-left: 10px;
+		margin-top: 0;
+		margin-right: 0;
 
 		select {
-			height: 40px;
-			width: 100%;
-			padding: 0 20px;
-			background-color: darken($first-color, 8%);
+			height: 30px;
+			padding: 0 10px;
 
-			&:focus {
-				color: #fff;
-			}
+			&:focus { color: #fff; }
 		}
 	}
 
 	// Gallery columns
-	.gallery {
-		column-count: 2;
-	}
+	.gallery { column-count: 3; }
 
-	// Form
-	form {
-		.btn-default {
-			width: 100%;
-		}
-	}
-}
-
-@media (max-width: 867px) {
+	// Blog
 	.post {	
+		// Thumbnail
 		.post-thumbnail {
-			height: auto;
+			height: 300px;
 
 			.post-img {
-				width: 100%;
-				max-height: none;
+				max-height: 100%;
+				left: 50%;
+				width: auto;
+				max-width: none;
+				position: relative;
+				-webkit-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);
 			}
-		}
-	}	
-}
 
-@media (max-width: 768px) {
-	// Gallery columns
-	.gallery {
-		column-count: 1;
-	}
-
-	// Footer
-	.footer {
-		.footer-copyright {
-			p {
-				text-align: center;
-				float: none;
-
-				&.theme-author {
-					float: none;
+			&:hover {
+				.post-img {
+					-webkit-transform: translate(-50%, 0) scale(1.1);
+					transform: translate(-50%, 0) scale(1.1);
 				}
 			}
 		}
-	}
+	}	
+
+	// Form
+	form .btn-default { width: 180px; }
 }

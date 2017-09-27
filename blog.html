@@ -1,29 +1,21 @@
 {template: inc/header.html}
 
-<header  class="header" style="background-image: url('{$bat.theme}/img/blog-bg.jpg');">
-    <h1 class="hidden">{$page.title}</h1>
-</header>   
+<header class="header blog-header" style="background-image: url('{$bat.theme}/img/blog-bg.jpg');"></header>   
 
 <div class="author-area">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <img src="{$bat.theme}/img/author.jpg" class="author-image" alt="">
-                    <h2 class="author-name">
-                        Kate Doe
-                    </h2>
+
+                <div class="author-flex-container">
+                    <img src="{$bat.theme}/img/author.jpg" class="author-thumbnail" alt="">
+                    <!--Name-->
+                    <h2 class="author-name">Kate Doe</h2>
+                </div>
+
                 <div class="author-description">{$snippet.author-description}</div>
 
-                <div class="social">
-
-                    <!--Social icons start-->
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-500px" aria-hidden="true"></i></a>
-                    <!--Social icons end-->
-
-                </div>
+                <div class="social"></div>
             </div>
         </div>
     </div>

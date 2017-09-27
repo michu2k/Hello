@@ -2,17 +2,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-md-3">
-				<h3 class="widget-heading">Follow Me</h3>
-				<div class="widget-social">
-
-					<!--Social icons start-->
-					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-500px" aria-hidden="true"></i></a>
-					<!--Social icons end-->
-
-                </div>
+				<h3 class="widget-heading" id="follow_me">Follow Me</h3>
+				<div class="social widget-social"></div>
 			</div>
 			<div class="col-xs-12 col-md-5">
 				<h3 class="widget-heading">{$lang.blog.latest_posts}</h3>
@@ -36,19 +27,27 @@
 	<div class="footer-copyright">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-12 footer-flex-container">
 					<p>{$settings.footer} {$bat.powered}</p>
-					<p class="theme-author">Theme by <a href="http://michu2k.pl/">Michał Strumpf</a></p>
+					<p><span id="created">Theme by </span><a href="http://michu2k.pl/">Michał Strumpf</a></p>
 				</div>
 			</div>
 		</div>
 	</div>
 </footer> 
 
+	<script id="json_data" type="application/json">
+	{
+		{template: settings.json}
+		"site_lang": "{$settings.lang_site}",
+		"user_lang": "<?php echo $_SESSION['lang']; ?>"
+	}
+	</script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="{$bat.theme}/js/bs-modal.min.js"></script>
 	<script src="{$bat.theme}/js/theme.min.js"></script>
-    
+
     {loop: $bat.footer}{$value}{/loop}
     
 </body>

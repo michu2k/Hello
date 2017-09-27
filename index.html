@@ -1,16 +1,15 @@
 {template: inc/header.html}
 
-<header class="header page-header">
+<header class="header">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1 class="page-header-title">{$page.title}</h1>
-                <h2 class="hidden">{$page.title}</h2>   
-                <p class="page-header-desc">{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}</p>               
+                <h2 class="header-title">{$page.title}</h2>
+                <p class="header-desc">{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}</p>               
             </div>
         </div>
     </div>
-</header>   
+</header>
 
 <div class="container">
     <div class="row">
@@ -19,10 +18,10 @@
                 {if: $bat.notify}
                 <div id="notify" class="alert alert-{$bat.notify.type}">{$bat.notify.text}</div>
                 {/if}
-                {$page.content}      
-            </div>   
+                {$page.content}
+            </div>
         </div>
-    </div>    
+    </div>
 </div>
 
 {template: inc/footer.html}
