@@ -1,8 +1,8 @@
-// About
+﻿// About
 
 	Name: Hello
 	Author: Michał Strumpf
-	Version: 1.3
+	Version: 1.3.1
 	Batflat: 1.3.X
 
 // How to install ?
