@@ -1,25 +1,25 @@
 {
-	"author_name": "Kate Doe",
-	"social": {
-		"facebook": "https://www.facebook.com/",
-		"twitter": "https://twitter.com/",
-		"instagram": "https://www.instagram.com/",
-		"linkedin": "https://www.linkedin.com/"
-	},
-	"batflat": {
-		"site_lang": "{$settings.lang_site}",
-		"user_lang": "<?php echo $_SESSION['lang']; ?>"	
-	},
-	"pl_polski": {
-		"follow_me": "Obserwuj mnie",
-		"created": "Stworzone przez ",
-		"share": "Udostępnij",
-		"tweet": "Tweetnij"
-	},
-	"en_english": {
-		"follow_me": "Follow me",
-		"created": "Created by ",
-		"share": "Share",
-		"tweet": "Tweet"
-	}
+    "author_name": "Kate Doe",
+    "social": {
+        "facebook": "https://www.facebook.com/",
+        "twitter": "https://twitter.com/",
+        "instagram": "https://www.instagram.com/",
+        "linkedin": "https://www.linkedin.com/"
+    },
+    "batflat": {
+        "site_lang": "{$settings.lang_site}",
+        "user_lang": "<?php echo $_SESSION['lang']; ?>" 
+    },
+    "pl_polski": {
+        "follow_me": "Obserwuj mnie",
+        "created": "Stworzone przez ",
+        "share": "Udostępnij",
+        "tweet": "Tweetnij"
+    },
+    "en_english": {
+        "follow_me": "Follow me",
+        "created": "Created by ",
+        "share": "Share",
+        "tweet": "Tweet"
+    }
 }

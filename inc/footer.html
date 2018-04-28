@@ -1,48 +1,48 @@
 <footer class="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-md-3">
-				<h3 class="widget-heading" id="follow_me">Follow Me</h3>
-				<div class="social widget-social"></div>
-			</div>
-			<div class="col-xs-12 col-md-5">
-				<h3 class="widget-heading">{$lang.blog.latest_posts}</h3>
-				<ul class="widget-content">
-					{loop: $latestPosts}
-						<li class="widget-latest-post"><a href="{?= url(['blog', 'post', $value.slug]) ?}">{$value.title}</a></li>
-					{/loop}
-				</ul>
-			</div>
-			<div class="col-xs-12 col-md-4">
-				<h3 class="widget-heading">{$lang.blog.categories}</h3>
-				<ul class="widget-content">
-                    {loop: $allTags}
-					<li class="widget-tag"><a href="{?=url(['blog','tag', $value.slug]) ?}">{$value.name}</a></li>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <h3 class="widget-heading" id="follow_me">Follow Me</h3>
+                <div class="social widget-social"></div>
+            </div>
+            <div class="col-xs-12 col-md-5">
+                <h3 class="widget-heading">{$lang.blog.latest_posts}</h3>
+                <ul class="widget-content">
+                    {loop: $latestPosts}
+                        <li class="widget-latest-post"><a href="{?= url(['blog', 'post', $value.slug]) ?}">{$value.title}</a></li>
                     {/loop}
-				</ul>
-			</div>	
-		</div>
-	</div>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <h3 class="widget-heading">{$lang.blog.categories}</h3>
+                <ul class="widget-content">
+                    {loop: $allTags}
+                    <li class="widget-tag"><a href="{?=url(['blog','tag', $value.slug]) ?}">{$value.name}</a></li>
+                    {/loop}
+                </ul>
+            </div>  
+        </div>
+    </div>
 
-	<div class="footer-copyright">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 footer-flex-container">
-					<p>{$settings.footer} {$bat.powered}</p>
-					<p><span id="created">Theme by </span><a href="http://michu2k.pl/">Michał Strumpf</a></p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 footer-flex-container">
+                    <p>{$settings.footer} {$bat.powered}</p>
+                    <p><span id="created">Theme by </span><a href="http://michu2k.pl/">Michał Strumpf</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer> 
 
-	<script id="json_data" type="application/json">
-		{template: settings.json}
-	</script>
+    <script id="json_data" type="application/json">
+        {template: settings.json}
+    </script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script src="{$bat.theme}/js/bs-modal.min.js"></script>
-	<script src="{$bat.theme}/js/theme.min.js?v=1.3.1"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{$bat.theme}/js/bs-modal.min.js"></script>
+    <script src="{$bat.theme}/js/theme.min.js?v=1.3.1"></script>
 
     {loop: $bat.footer}{$value}{/loop}
     
