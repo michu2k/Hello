@@ -10,21 +10,20 @@
                     <div class="row">
                         <div class="col-xs-12">
                             {if: $post.cover_photo}
-                                <figure class="post-thumbnail single-post-thumbnail">
-                                    <img class="post-img" src="{$post.cover_url}" alt="">
-                                </figure>
+                            <figure class="post-thumbnail single-post-thumbnail">
+                                <img class="post-img" src="{$post.cover_url}" alt="">
+                            </figure>
                             {/if}
 
                             <div class="post-header post-margin">
                                 <h2 class="post-title">{$post.title}</h2>
                                 <div class="post-meta">
-                                    <p class="post-meta-item">{$post.published_at}</p> 
-                                                                                
+                                    <p class="post-meta-item">{$post.published_at}</p>
+                                    
                                     {if: $post.tags}
                                         <p class="post-meta-item">
                                         {loop: $post.tags as $tag}
-                                            {if: $key != 0}, {/if}
-                                            <a href="{$tag.url}" class="post-tag">{$tag.name}</a>
+                                            {if: $key != 0}, {/if}<a href="{$tag.url}" class="post-tag">{$tag.name}</a>
                                         {/loop} 
                                         </p>
                                     {/if} 
@@ -46,13 +45,13 @@
 
                             <div class="post-footer">
                                 <div class="post-profile">
-                                    <div class="post-flex-container">
-                                        <img src="{?= $post.author.avatar ?}" class="profile-thumbnail" alt="">  
+                                    <div class="d-flex align-items-center">
+                                        <img src="{?= $post.author.avatar ?}" class="profile-thumbnail" alt="">
                                         <h2 class="profile-name">{$post.author.name}</h2>
                                     </div>
                                     <p class="profile-description">{$post.author.description}</p>
                                 </div>
-                            </div>  
+                            </div>
 
                         </div>
                     </div>
@@ -60,10 +59,10 @@
                         <div id="disqus_thread"></div>
                         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
                     </div>
-                </article>   
-            </div>  
+                </article>
+            </div>
         </div>
-    </div>    
+    </div>
 </div>
 
 {template: inc/footer.html}

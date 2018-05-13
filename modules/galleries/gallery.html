@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="gallery">
+    {loop: $gallery.items}
+        <div class="thumbnail">
+            <a href="{?=url($value.src.lg)?}" class="gallery-{$gallery.slug}">
+                <img src="{?=url($value.src.sm)?}" alt="{if: $value.title}{$value.title}{/if}" class="img-responsive">
+            </a>
+            {if: $value.title || $value.desc}
+            <div class="caption">
+                {if: $value.title}<h3 class="img-title">{$value.title}</h3>{/if}
+                {if: $value.desc}<p class="img-desc">{$value.desc}</p>{/if}
+            </div>
+            {/if}
+        </div>
+    {/loop}
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.gallery-{$gallery.slug}').lightbox();
+});
+</script>

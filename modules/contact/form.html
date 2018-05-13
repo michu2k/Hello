@@ -1,0 +1,39 @@
+<form class="form" name="email" method="POST" action="{$_SERVER['REQUEST_URI']}">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="form-group">
+                <label for="inputName" class="form-label">{$lang.contact.full_name}</label>
+                <input type="text" class="form-control" id="inputName" name="name" placeholder="{$lang.contact.full_name}" required />
+            </div>  
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="form-group">
+                <label for="inputMail" class="form-label">{$lang.contact.email}</label>
+                <input type="email" class="form-control" id="inputMail" name="from" placeholder="{$lang.contact.email}" required />
+            </div>    
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputSubject" class="form-label">{$lang.contact.subject}</label>
+        <input type="text" class="form-control" id="inputSubject" name="subject" placeholder="{$lang.contact.subject}" required />
+    </div>
+    <div class="form-group">
+        <label for="inputMessage" class="form-label">{$lang.contact.message}</label>
+        <textarea rows="5" id="inputMessage" class="form-control" name="message" placeholder="{$lang.contact.message}" required></textarea>
+    </div>
+
+    <!-- antispam field -->
+    <div class="form-group" id="antispam">
+        <input type="text" name="title" autofill="off" required />
+    </div>
+    <script>
+        (function () {
+            var e = document.getElementById("antispam");
+            e.parentNode.removeChild(e);
+        })();
+    </script>
+    <!-- /antispam field -->
+
+    <button type="submit" name="send-email" class="btn-form">{$lang.contact.send}<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+</button>
+</form>

@@ -1,0 +1,41 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 d-flex align-items-center justify-content-between navbar-flex-container">
+                
+                <a href="{$bat.path}" class="navbar-brand-link">
+                    <h1 class="navbar-brand">{$settings.title}</h1>
+                </a>
+
+                <div class="navbar-sidebar" id="main-navigation">
+                    <div class="navbar-sidebar-header d-flex align-items-center justify-content-between">
+                        <button type="button" class="navbar-btn" id="sidebar-close">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="sr-only">Toggle navigation</span>
+                        </button>
+                        <h2 class="sidebar-header-title">Menu</h2>
+                    </div>
+
+                    <ul class="navbar-nav">
+                        {$navigation.main}
+                    </ul>
+
+                </div>
+
+                <button type="button" class="navbar-btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div id="mobile-background"></div>

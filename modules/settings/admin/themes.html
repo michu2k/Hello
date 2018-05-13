@@ -1,0 +1,123 @@
+<style>
+    .hello-panel {
+        border: 1px solid #e9e9e9;
+        padding: 15px 10px;
+    }
+
+    .hello-panel .hello-panel-title {
+        font-weight: 600;
+        font-size: 12px;
+        color: #474f57;
+        margin: 0;
+    }
+
+    .hello-panel-title > span {
+        font-weight: 700;
+        font-size: 20px;
+        color: #401080;
+    }    
+
+    .hello-panel .hello-panel-desc {
+        font-size: 14px;
+        line-height: 25px;
+        color: #909ead;
+        margin: 0;
+    }
+
+    .hello-panel .hello-panel-desc > span {
+        color: #83909e;
+        font-weight: 700;
+    }
+
+    .hello-panel-desc .hello-panel-desc-link {
+        color: #83909e;
+    }
+
+    .hello-panel-desc .hello-panel-desc-link:hover {
+        color: #401080;
+    }
+
+    .hello-footer {
+        border: 0;
+        background: none;
+    }
+
+    .hello-footer > .hello-link {
+        font-weight: 600;
+        font-size: 12px;
+        color: #474f57;
+        margin-right: 15px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .hello-footer > .hello-link.hello-link-pulse {
+        -webkit-animation: pulse 4s ease-in infinite;
+                animation: pulse 4s ease-in infinite;    
+    }
+
+    .hello-footer > .hello-link:hover {
+        color: #401080;
+    }
+
+    @-webkit-keyframes pulse {
+        25% { opacity: 1; }
+        30% { opacity: 0.3; }
+        35% { opacity: 1; }
+    }
+
+    @keyframes pulse {
+        25% { opacity: 1; }
+        30% { opacity: 0.3; }
+        35% { opacity: 1; }
+    }
+
+    @media (min-width: 360px)
+    {
+        .hello-footer > .hello-link {
+            display: inline-block;
+        }
+    }
+
+</style>
+
+<article class="row">
+    <div class="col-md-12">
+        <div class="panel hello-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title hello-panel-title">
+                <span>HELLO</span> has been activated</h3>
+            </div>
+            <div class="panel-body hello-body">
+                <p class="hello-panel-desc">Light and clean theme for blog. It has been enriched with cool animations that will please the eye of your visitors. Some modules have also been modified specially for this template. Select the <span>Configuration</span> tab to learn how to configure the template. If you found any error or have a question about the template, click <span><a href="https://github.com/michu2k/Hello/issues" class="hello-panel-desc-link" target="_blank">this link</a></span> and create an issue.</p>
+            </div>
+            <div class="panel-footer hello-footer">
+                <a href="https://github.com/michu2k/Hello#configuration" class="hello-link hello-link-pulse" target="_blank">Configuration</a>
+                <a href="http://michu2k.pl" class="hello-link" target="_blank">Author</a>
+            </div>
+        </div>
+    </div>
+
+    {loop: $themes}
+    <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><a href="{?= url([ADMIN, 'settings', 'theme', $value.dir]) ?}">{$value.name}</a></h3>
+            </div>
+            <div class="panel-body">
+                <a href="{?= url([ADMIN, 'settings', 'theme', $value.dir]) ?}" class="theme-preview">
+                    <img src="{?= url(['themes', $value.dir, $value.thumb]) ?}" class="img-responsive">
+                </a>
+            </div>
+            <div class="panel-footer">
+                {if: $settings.theme == $value.dir}
+                <a href="#" class="btn btn-primary btn-block btn-xs disabled">{$lang.settings.active}</a>
+                {else}
+                <a href="{?= url([ADMIN, 'settings', 'theme', $value.dir, 'activate']) ?}" class="btn btn-primary btn-block btn-xs">{$lang.settings.activate}</a>
+                {/if}
+                <a href="{?= url([ADMIN, 'settings', 'theme', $value.dir]) ?}" class="btn btn-warning btn-block btn-xs">{$lang.general.edit}</a>
+            </div>
+        </div>
+    </div>
+    {/loop}
+</article>
