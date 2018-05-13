@@ -8,7 +8,7 @@
 Batflat 1.3.x
 
 ## Changelog
-![Changelog](./CHANGELOG.md)
+![View changelog](./CHANGELOG.md)
 
 ## How to install
 1. Download this repository
@@ -27,21 +27,21 @@ Batflat 1.3.x
 
 ### Social icons
 You can modify your social icons in the following files:
-- Author area: inc/social.html. 
-- Footer: inc/social-footer.html.  
+- Author area: `inc/social.html`
+- Footer: `inc/social-footer.html`
 
-You need to change code which is bolded:
+You need to change LINK and ICON_NAME
 
 ```html
-<a class="social-icon" href="**LINK**">
-    <i class="fa fa-**ICON_NAME**" aria-hidden="true"></i>
+<a class="social-icon" href="LINK">
+    <i class="fa fa-ICON_NAME" aria-hidden="true"></i>
 </a>
 ```
 
-Icon names from: fontawesome.io/cheatsheet/
+Icon names from: [Font Awesome](https://fontawesome.com/cheatsheet) 
 
 ### Footer
--Widget heading require `{$snippet.footer-widget-social}` snippet 
+- Widget heading require `{$snippet.footer-widget-social}` snippet 
 
 ## Notes
 - Debug bar and Carousel are not supported in this theme        
