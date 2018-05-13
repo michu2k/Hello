@@ -6,6 +6,8 @@
     - Added nav.html
     - Added social.html
     - Added social-footer.html
+    - Added modules folder with modules
+    - Added special view for some modules
     - Changed menu
     - Changed author area
     - Changed contact form
