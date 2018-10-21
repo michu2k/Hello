@@ -34,7 +34,7 @@
                         <div class="col-xs-12 col-md-4">
                             <a href="{$value.url}">  
                                 <figure class="post-thumbnail">
-                                    <img class="post-img" src="{$value.cover_url}" alt="">
+                                    <img class="post-img" src="{$value.cover_url}" alt="{$value.title}">
                                 </figure>
                             </a> 
                         </div>
@@ -44,7 +44,7 @@
                         {/if} 
                             <div class="post-preview-container">
                                 <div class="post-header">
-                                    <a href="{$value.url}"><h2 class="post-title" data-title="{$value.title}">{$value.title}</h2></a>
+                                    <a href="{$value.url}"><h2 class="post-title">{$value.title}</h2></a>
                                     <div class="post-meta">
                                         <p class="post-meta-item">{$value.published_at}</p>
                                         
@@ -68,24 +68,25 @@
                     </div>
                 </article>
                 {/loop}
-            <div class="pagination">
-                <div class="row">
-                    <div class="col-xs-12 col-md-6">
-                        {if: isset($prev)}
-                        <div class="pagination-item">
-                            <a href="{$prev.url}" class="item-link">{$lang.blog.newer}</a>
+
+                <div class="pagination">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            {if: isset($prev)}
+                            <div class="pagination-item">
+                                <a href="{$prev.url}" class="item-link">{$lang.blog.newer}</a>
+                            </div>
+                            {/if}
                         </div>
-                        {/if}
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        {if: isset($next)}
-                        <div class="pagination-item">
-                            <a href="{$next.url}" class="item-link">{$lang.blog.older}</a>
+                        <div class="col-xs-12 col-md-6">
+                            {if: isset($next)}
+                            <div class="pagination-item">
+                                <a href="{$next.url}" class="item-link">{$lang.blog.older}</a>
+                            </div>
+                            {/if}
                         </div>
-                        {/if}
                     </div>
-                </div>
-            </div> 
+                </div> 
             </div>  
         </div>
     </div>    

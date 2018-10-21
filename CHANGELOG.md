@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.1
+    - Added language type in html tag
+    - Updated social icons template
+    - Updated preview.png
+    - Fixed share popups
+    - Various fixes
+
 ## 1.4
     - Added theme info in admin panel
     - Added CHANGELOG.md

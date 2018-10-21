@@ -11,7 +11,7 @@
                         <div class="col-xs-12">
                             {if: $post.cover_photo}
                             <figure class="post-thumbnail single-post-thumbnail">
-                                <img class="post-img" src="{$post.cover_url}" alt="">
+                                <img class="post-img" src="{$post.cover_url}" alt="{$post.title}">
                             </figure>
                             {/if}
 
@@ -33,13 +33,13 @@
                                 {$post.content}
                             </div>
                             <div class="post-share">
-                                <a href="http://twitter.com/home?status={?= urlencode($post.url) ?}" class="share-btn twitter-btn">
-                                    <i class="fa fa-twitter" data-toggle="tooltip" title="" data-original-title="Twitter"></i>
-                                    <span id="tweet">Tweet</span>
+                                <a href="http://twitter.com/home?status={?= urlencode($post.url) ?}" class="share-btn twitter-btn" data-title="Twitter">
+                                    <span class="fa fa-twitter" aria-hidden="true"></span>
+                                    <span>Tweet</span>
                                 </a>
-                                <a href="https://www.facebook.com/sharer.php?u={?= urlencode($post.url) ?}" class="share-btn facebook-btn">
-                                    <i class="fa fa-facebook" data-toggle="tooltip" title="" data-original-title="Facebook"></i>
-                                    <span id="share">Share</span>
+                                <a href="https://www.facebook.com/sharer.php?u={?= urlencode($post.url) ?}" class="share-btn facebook-btn" data-title="Facebook">
+                                    <span class="fa fa-facebook" aria-hidden="true"></span>
+                                    <span>Share</span>
                                 </a>
                             </div>
 
@@ -55,6 +55,7 @@
 
                         </div>
                     </div>
+
                     <div class="post-comments">
                         <div id="disqus_thread"></div>
                         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
