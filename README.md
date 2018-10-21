@@ -34,7 +34,9 @@ You need to change LINK and ICON_NAME
 
 ```html
 <a class="social-icon" href="LINK">
-    <i class="fa fa-ICON_NAME" aria-hidden="true"></i>
+    <span class="fa fa-ICON_NAME" aria-hidden="true">
+        <span class="sr-only">NAME</span>
+    </span>
 </a>
 ```
 
